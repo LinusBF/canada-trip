@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Middleware\UserExists;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -37,6 +38,7 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+	    $this->middleware(UserExists::class);
     }
 
     /**
