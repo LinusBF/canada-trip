@@ -1,5 +1,21 @@
 <?php
 
+
+if (!function_exists('pgsql_database')) {
+	function pgsql_database()
+	{
+		$config = parse_url(env('DATABASE_URL'));
+
+		return [
+			'username' => $config['user'],
+			'password' => $config['pass'],
+			'host' => $config['host'],
+			'port' => $config['port'],
+			'database' => starts_with($config['path'], '/') ? substr($config['path'], 1) : $config['path'],
+		];
+	}
+}
+
 return [
 
     /*
