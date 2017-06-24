@@ -14,9 +14,17 @@
     </head>
     <body>
         <div class="fullscreen-bg">
-            <video loop muted autoplay poster="{{ url('/storage/bg_video_frame.png') }}" class="fullscreen-bg__video">
-                <source src="{{ url('/storage/bg_video.mp4') }}" type="video/mp4">
-            </video>
+            @if($image != null)
+                @if(ends_with($image->path, '.mp4'))
+                    <video loop muted autoplay class="fullscreen-bg__video">
+                        <source src="{{ Storage::url($image->path) }}" type="video/mp4">
+                    </video>
+                @elseif(ends_with($image->path, '.jpg'))
+                    <image class="fullscreen-bg__video" href="{{ Storage::url($image->path) }}">
+                @elseif(ends_with($image->path, '.png'))
+                    <image class="fullscreen-bg__video" href="{{ Storage::url($image->path) }}">
+                @endif
+            @endif
         </div>
 
         <div class="front-overlay flex-center position-ref full-height full-width">

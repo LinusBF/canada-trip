@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use Illuminate\Http\Request;
 use App\Location;
+use App\Image;
 
 class HomeController extends Controller
 {
@@ -31,5 +32,15 @@ class HomeController extends Controller
     	$loc_count = count($locations);
 
         return view('home', compact('loc_count', 'locations', 'posts'));
+    }
+
+    public function show(){
+    	$image = Image::where('type', 'start_page');
+
+	    if (isset($image)){
+	    	$image = $image->first();
+	    }
+
+    	return view('welcome', compact('image'));
     }
 }
