@@ -2,14 +2,14 @@
 
 @section ('content')
     <div class="fullscreen_trip_bg">
-        <img src="/storage/{{ $trip_parts[0][1]->image->path }}">
+        <img src="{{ Storage::url($trip_parts[0][1]->image->path) }}">
     </div>
     <h2 class="location_title">{{ $trip_parts[0][1]->name }}</h2>
     <div class="trip_container">
 
         @php($old_loc_id = $trip_parts[0][1]->id)
         <div id="location_{{ $trip_parts[0][1]->id }}" class="location_container flex-center in_view_trigger">
-            <input class="location_image" type="hidden" value="{{ $trip_parts[0][1]->image->path }}" />
+            <input class="location_image" type="hidden" value="{{ Storage::url($trip_parts[0][1]->image->path) }}" />
             <input class="location_name" type="hidden" value="{{ $trip_parts[0][1]->name }}" />
             <div class="location_posts_container">
 
@@ -19,7 +19,7 @@
 
                 @if($location->id != $old_loc_id)
                     <div id="location_{{ $location->id }}" class="location_container flex-center in_view_trigger">
-                        <input class="location_image" type="hidden" value="{{ $location->image->path }}" />
+                        <input class="location_image" type="hidden" value="{{ Storage::url($location->image->path) }}" />
                         <input class="location_name" type="hidden" value="{{ $location->name }}" />
                         <div class="location_posts_container">
                     @php($old_loc_id = $location->id)
@@ -31,7 +31,7 @@
                                     <p>{{ $post->content }}</p>
                                 </div>
                                 <div class="post_image">
-                                    <img src="/storage/{{ $post->images[0]->path }}">
+                                    <img src="{{ Storage::url($post->images[0]->path) }}">
                                 </div>
                             </div>
                         </div>

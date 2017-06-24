@@ -60,7 +60,7 @@ function monitor(event, visible)
 {
 	if(visible)
 	{
-		var loc_img_path = "/storage/" + $(event.target).children('.location_image').val();
+		var loc_img_path = $(event.target).children('.location_image').val();
 		var loc_name = $(event.target).children('.location_name').val();
 
 		var current_loc_title = $('.location_title');

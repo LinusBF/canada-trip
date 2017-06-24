@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use App\Image;
 use App\Location;
 
@@ -31,13 +32,16 @@ class Post extends Model
 
 		$files = request()->file('images');
 
+		$lastImagePath = "";
+
 		foreach ($files as $file) {
-			$destinationPath = public_path() . '/storage/';
-			$path = $file->getClientOriginalName();
+			$path = $file->store('public');
 
-			$file->move( $destinationPath, $path );
+			$this->images()->create(compact('path', 'type'));
 
-			$this->images()->create( compact( 'path', 'type' ) );
+			$lastImagePath = $path;
 		}
+
+		return Storage::exists($lastImagePath);
 	}
 }

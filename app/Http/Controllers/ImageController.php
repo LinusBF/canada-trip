@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post;
 
 class ImageController extends Controller
 {
@@ -15,4 +14,5 @@ class ImageController extends Controller
 
 		return true;
 	}
+
 }

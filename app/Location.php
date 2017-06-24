@@ -30,12 +30,7 @@ class Location extends Model
 	public function addImage($type="background")
 	{
 
-		$file = request()->file('image');
-
-		$destinationPath = public_path().'/storage/';
-		$path = $file->getClientOriginalName();
-
-		$file->move($destinationPath, $path);
+		$path = request()->file('image')->store('public');
 
 		$this->image()->create(compact('path', 'type'));
 
