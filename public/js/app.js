@@ -11080,6 +11080,23 @@ $(function () {
 	});
 });
 
+//Manage elements in images/start view
+$('#media-type-select-image').on('click', function () {
+	var image_field = $('#input-select-image');
+	if (image_field.hasClass('hidden')) {
+		$('#input-select-video').addClass('hidden');
+		image_field.removeClass('hidden');
+	}
+});
+
+$('#media-type-select-video').on('click', function () {
+	var image_field = $('#input-select-video');
+	if (image_field.hasClass('hidden')) {
+		$('#input-select-image').addClass('hidden');
+		image_field.removeClass('hidden');
+	}
+});
+
 //Switching elements when scrolling
 $('.in_view_trigger').bind('inview', monitor);
 function monitor(event, visible) {
