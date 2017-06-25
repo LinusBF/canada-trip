@@ -36,6 +36,7 @@ class Post extends Model
 
 		foreach ($files as $file) {
 			$path = $file->store('public');
+			Storage::setVisibility($path, 'public');
 
 			$this->images()->create(compact('path', 'type'));
 
