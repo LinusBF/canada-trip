@@ -2,7 +2,7 @@
 
 @section ('content')
     <div class="fullscreen_trip_bg">
-        <img src="/storage/{{ $post->location->image->path }}">
+        <img src="{{ Storage::url($post->location->image->path) }}">
     </div>
     <h2 class="location_title">{{ $post->location->name }}</h2>
     <div class="post_container">
@@ -13,7 +13,7 @@
                         <h3>{{ $post->title }}</h3>
                         <p>{{ $post->content }}</p>
                     </div>
-                    <img src="/storage/{{ $post->images[0]->path }}">
+                    <img src="{{ Storage::url($post->images[0]->path) }}">
                 </div>
             </div>
             @if(count($post->images) > 1)
@@ -22,9 +22,9 @@
                     @foreach($post->images->all() as $image)
                         <div class="gallery_image_container">
                             @if($image == $post->images[0])
-                                <img class="current_image" src="/storage/{{ $image->path }}">
+                                <img class="current_image" src="{{ Storage::url($image->path) }}">
                             @else
-                                <img src="/storage/{{ $image->path }}">
+                                <img src="{{ Storage::url($image->path) }}">
                             @endif
                         </div>
                     @endforeach
