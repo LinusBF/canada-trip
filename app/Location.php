@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Post;
 use App\Image;
+use Illuminate\Support\Facades\Storage;
 
 class Location extends Model
 {
@@ -31,6 +32,7 @@ class Location extends Model
 	{
 
 		$path = request()->file('image')->store('public');
+		Storage::setVisibility($path, 'public');
 
 		$this->image()->create(compact('path', 'type'));
 

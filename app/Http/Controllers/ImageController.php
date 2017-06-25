@@ -34,6 +34,8 @@ class ImageController extends Controller
 			'public', 'bg_start.'.request()->file('media')->extension()
 		);
 
+		Storage::setVisibility($path, 'public');
+
 		Image::create(compact('path', 'type'));
 
 		return redirect('/home');
