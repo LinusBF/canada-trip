@@ -8,11 +8,14 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    <a class="btn-primary btn" href="/location/create">Add new location</a>
+                    <a class="btn-primary btn" href="/images/start">{{ __('messages.home_set_start') }}</a>
+                    <br>
+                    <br>
+                    <a class="btn-primary btn" href="/location/create">{{ __('messages.home_new_loc') }}</a>
                     <br>
                     <br>
                     @if($loc_count >= 1)
-                        <a class="btn-primary btn" href="/post/create">New trip post</a>
+                        <a class="btn-primary btn" href="/post/create">{{ __('messages.home_new_post') }}</a>
                     @else
                         <button class="btn-primary btn" disabled>New trip post</button>
                         <p class="help-block">{{ __('messages.home_no_locations') }}</p>

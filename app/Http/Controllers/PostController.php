@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Location;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Middleware\LocationExists;
 
 class PostController extends Controller
@@ -71,7 +72,9 @@ class PostController extends Controller
 
 		    $post = Post::findOrFail($post_id);
 
-		    $post->addImage(request('type'));
+		    if(!$post->addImage(request('type'))){
+		    	Post::destroy($post_id);
+		    }
 	    }
 
 	    return redirect('/home');
@@ -139,6 +142,14 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         Post::destroy($post->id);
+
+	    foreach ($post->images() as $image){
+		    if(Storage::exists($image->path)){
+		    	Storage::delete($image->path);
+		    }
+
+		    $image->destroy();
+	    }
 
 	    return redirect('/home');
     }

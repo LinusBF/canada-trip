@@ -11,15 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@show');
 
 Auth::routes();
 
 Route::get('home', 'HomeController@index')->name('home');
 
 Route::get('trip', 'PostController@index');
+
+
+
+Route::get('images/start', 'ImageController@start_page')->middleware('auth');
+
+Route::post('images/start', 'ImageController@store_start_page')->middleware('auth');
+
+
 
 Route::get('post/create', 'PostController@create')->middleware('auth');
 

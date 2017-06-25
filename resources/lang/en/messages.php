@@ -4,6 +4,9 @@ return [
 
 	'page_title' => 'Canada Trip 2017',
 	'app_name' => 'Canada Trip',
+	'home_set_start' => 'Set start page media',
+	'home_new_loc' => 'Add new location',
+	'home_new_post' => 'New trip post',
 	'post_create_title' => 'Add a new trip post',
 	'post_create_input_title' => 'Post Title',
 	'post_create_text_placeholder' => 'Write something nice',
@@ -22,5 +25,8 @@ return [
 	'location_create_add_post_btn' => 'Add new location',
 	'home_no_locations' => 'You need to add a location before you make a trip post',
 	'see_trip_btn' => 'See the trip',
+	'set_start_title' => 'Add a image or video to be displayed on the start page',
+	'set_start_add_images' => 'Select a video or an image',
+	'set_start_add_post_btn' => 'Upload',
 
 ];
