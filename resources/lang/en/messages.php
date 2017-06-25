@@ -28,5 +28,9 @@ return [
 	'set_start_title' => 'Add a image or video to be displayed on the start page',
 	'set_start_add_images' => 'Select a video or an image',
 	'set_start_add_post_btn' => 'Upload',
+	'set_start_lbl_media_type' => 'Select what you want as the background on the start page',
+	'set_start_radio_image' => 'Image',
+	'set_start_radio_video' => 'Video (Youtube)',
+	'set_start_lbl_media_link' => 'Youtube link: ',
 
 ];
