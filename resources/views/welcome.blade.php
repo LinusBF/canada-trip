@@ -20,9 +20,9 @@
                         <source src="{{ Storage::url($image->path) }}" type="video/mp4">
                     </video>
                 @elseif(ends_with($image->path, '.jpg'))
-                    <image class="fullscreen-bg__video" href="{{ Storage::url($image->path) }}">
+                    <img class="fullscreen-bg__video" src="{{ Storage::url($image->path) }}">
                 @elseif(ends_with($image->path, '.png'))
-                    <image class="fullscreen-bg__video" href="{{ Storage::url($image->path) }}">
+                    <img class="fullscreen-bg__video" src="{{ Storage::url($image->path) }}">
                 @endif
             @endif
         </div>
