@@ -20,5 +20,10 @@
   },
   "dependencies": {
     "appear": "^1.0.1"
+  },
+  "engines": {
+    "node": "7.4.x",
+    "npm": "4.3.x",
+    "yarn": "0.25.x"
   }
 }
