@@ -23,6 +23,7 @@ class ImageController extends Controller
 
 	public function store_start_page(Request $request){
 		$type = request('type');
+		$media_type = request('media_type');
 
 		if(Image::where('type', 'start_page')->first() !== null){
 			$start_page = Image::where('type', 'start_page')->first();
@@ -30,12 +31,18 @@ class ImageController extends Controller
 			Image::destroy($start_page->id);
 		}
 
-		$path = request()->file('media')->storeAs(
-			'public', 'bg_start.'.request()->file('media')->extension()
-		);
+		if($media_type == "image") {
+			$path = request()->file( 'media' )->storeAs(
+				'public', 'bg_start.' . request()->file( 'media' )->extension()
+			);
 
-		Storage::setVisibility($path, 'public');
-
+			Storage::setVisibility( $path, 'public' );
+		}else{
+			$link = request('media_link');
+			//Get the Youtube video ID out of the URL and save it as the video path
+			parse_str(parse_url($link)['query'], $parsed_link);
+			$path = $parsed_link['v'];
+		}
 		Image::create(compact('path', 'type'));
 
 		return redirect('/home');

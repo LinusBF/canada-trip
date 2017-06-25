@@ -15,7 +15,13 @@
     <body>
         <div class="fullscreen-bg">
             @if($image != null)
-                @if(ends_with($image->path, '.mp4'))
+                @if(!starts_with($image->path, 'public/')) <!-- Figure out a smoother way of doing this, column in DB? -->
+                    <div class="youtube-foreground">
+                        <iframe src="https://www.youtube.com/embed/{{ $image->path }}?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist={{ $image->path }}"
+                                frameborder="0" allowfullscreen>
+                        </iframe>
+                    </div>
+                @elseif(ends_with($image->path, '.mp4'))
                     <video loop muted autoplay class="fullscreen-bg__video">
                         <source src="{{ Storage::url($image->path) }}" type="video/mp4">
                     </video>
