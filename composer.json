@@ -41,7 +41,7 @@
         ],
         "post-install-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postInstall",
-            "./support/heroku/app_slug_compile.sh",
+            "bash ./support/heroku/app_slug_compile.sh",
             "php artisan optimize"
         ],
         "post-update-cmd": [
