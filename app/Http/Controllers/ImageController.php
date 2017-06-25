@@ -24,7 +24,7 @@ class ImageController extends Controller
 	public function store_start_page(Request $request){
 		$type = request('type');
 
-		if(Image::where('type', 'start_page') !== null){
+		if(Image::where('type', 'start_page')->first() !== null){
 			$start_page = Image::where('type', 'start_page')->first();
 			Storage::delete($start_page->path);
 			Image::destroy($start_page->id);
