@@ -81,7 +81,7 @@ class LocationController extends Controller
      */
     public function edit(Location $location)
     {
-        //
+	    return view('locations.edit', compact('location'));
     }
 
     /**
@@ -93,7 +93,20 @@ class LocationController extends Controller
      */
     public function update(Request $request, Location $location)
     {
-        //
+	    $this->validate(request(), ['name' => 'required',
+	                                'coords' => 'required']);
+
+	    $location->update([
+		    'name' => request('name'),
+		    'coordinates' => request('coords')]);
+
+	    if (request()->hasFile('image')){
+		    $this->validate(request(), ['image' => 'required']);
+
+		    $location->addImage(request('type'));
+	    }
+
+	    return redirect('/home');
     }
 
     /**
