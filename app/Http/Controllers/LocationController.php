@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Image;
 use App\Location;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -105,7 +106,7 @@ class LocationController extends Controller
 			    Storage::delete($location->image->path);
 		    }
 
-		    $location->image()->destroy();
+		    Image::destroy($location->image->id);
 
 		    $this->validate(request(), ['image' => 'required']);
 
@@ -123,13 +124,13 @@ class LocationController extends Controller
      */
     public function destroy(Location $location)
     {
-	    Location::destroy($location->id);
-
 	    if(Storage::exists($location->image->path)){
 	    	Storage::delete($location->image->path);
 	    }
 
-	    $location->image()->destroy();
+	    Image::destroy($location->image->id);
+
+	    Location::destroy($location->id);
 
 	    return redirect('/home');
     }
