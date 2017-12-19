@@ -101,6 +101,12 @@ class LocationController extends Controller
 		    'coordinates' => request('coords')]);
 
 	    if (request()->hasFile('image')){
+		    if(Storage::exists($location->image()->path)){
+			    Storage::delete($location->image()->path);
+		    }
+
+		    $location->image()->destroy();
+
 		    $this->validate(request(), ['image' => 'required']);
 
 		    $location->addImage(request('type'));
