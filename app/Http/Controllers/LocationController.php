@@ -105,7 +105,7 @@ class LocationController extends Controller
 			    Storage::delete($location->image->path);
 		    }
 
-		    $location->image->destroy();
+		    $location->image()->destroy();
 
 		    $this->validate(request(), ['image' => 'required']);
 
@@ -129,7 +129,7 @@ class LocationController extends Controller
 	    	Storage::delete($location->image->path);
 	    }
 
-	    $location->image->destroy();
+	    $location->image()->destroy();
 
 	    return redirect('/home');
     }
