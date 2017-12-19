@@ -101,13 +101,11 @@ class LocationController extends Controller
 		    'coordinates' => request('coords')]);
 
 	    if (request()->hasFile('image')){
-	    	$current_image = $location->image();
-
-		    if(Storage::exists($current_image->path)){
-			    Storage::delete($current_image->path);
+		    if(Storage::exists($location->image->path)){
+			    Storage::delete($location->image->path);
 		    }
 
-		    $current_image->destroy();
+		    $location->image->destroy();
 
 		    $this->validate(request(), ['image' => 'required']);
 
@@ -127,11 +125,11 @@ class LocationController extends Controller
     {
 	    Location::destroy($location->id);
 
-	    if(Storage::exists($location->image()->path)){
-	    	Storage::delete($location->image()->path);
+	    if(Storage::exists($location->image->path)){
+	    	Storage::delete($location->image->path);
 	    }
 
-	    $location->image()->destroy();
+	    $location->image->destroy();
 
 	    return redirect('/home');
     }
