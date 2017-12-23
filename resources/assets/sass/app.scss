@@ -315,15 +315,14 @@ $img_border: 75px;
   display: inline-block;
   padding-bottom: 20px;
   padding-top: 20px;
-  border-left: 1px solid rgba(42, 42, 42, 0.25);
 }
 
 .post_image > img{
   margin: auto;
   height: 450px;
-  width: -webkit-calc(70% - 20px);
-  width: -moz-calc(70% - 20px);
-  width: calc(70% - 20px);
+  max-width: -webkit-calc(90% - 20px);
+  max-width: -moz-calc(90% - 20px);
+  max-width: calc(90% - 20px);
   box-shadow: 0 1px 3px rgba(0,0,0, 0.12);
 }
 
@@ -375,8 +374,12 @@ $img_border: 75px;
   display: inline-block;
   margin-right: 0;
   width: 30%;
+  min-height: 490px;
   line-break: auto;
   vertical-align: top;
+  border-right: 1px solid rgba(42, 42, 42, 0.25);
+  padding-right: 20px;
+  padding-bottom: 10px;
 }
 
 .post_text > p,h3{
