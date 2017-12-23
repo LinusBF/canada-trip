@@ -28,7 +28,7 @@
                             <div class="post_content">
                                 <div class="post_text">
                                     <h3>{{ $post->title }}</h3>
-                                    <p>@php(echo nl2br($post->content))</p>
+                                    <p>{!! nl2br(e($post->content)) !!}</p>
                                 </div>
                                 <div class="post_image">
                                     <img src="{{ Storage::url($post->images[0]->path) }}">
