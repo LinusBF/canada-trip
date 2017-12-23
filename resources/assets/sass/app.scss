@@ -93,6 +93,26 @@ html, body {
   border: 2px solid #088917;
 }
 
+::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+  width: 12px;
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #2A2A2A;
+}
+
 
 /*----------------
 -----BG VIDEO-----
@@ -384,5 +404,10 @@ $img_border: 75px;
 
 .post_text > p,h3{
   margin-left: $img_border;
+}
+
+.post_text > p{
+  overflow-y: scroll;
+  max-height: 420px;
 }
 
