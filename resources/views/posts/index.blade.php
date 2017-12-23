@@ -16,7 +16,7 @@
                 <div id="location_{{ $location->id }}" class="location_container flex-center in_view_trigger">
                     <input class="location_image" type="hidden" value="{{ Storage::url($location->image->path) }}" />
                     <input class="location_name" type="hidden" value="{{ $location->name }}" />
-                    <div class="location_posts_container">
+                    <div id="{{ $index === 0 ? "first_location" : ""}}" class="location_posts_container">
                 @php($old_loc_id = $location->id)
             @endif
                     <div class="trip_post">
