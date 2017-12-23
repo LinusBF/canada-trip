@@ -330,11 +330,13 @@ $img_border: 75px;
 footer{
   height: 25px;
   width: 100%;
-  margin-bottom: 0px;
+  margin-bottom: 0;
   margin-top: 150px;
   background-color: rgba(229, 237, 241, 0.35);
   color: black;
   font-size: 12pt;
+  text-align: center;
+  padding: 5px 0;
 }
 
 .post_image {

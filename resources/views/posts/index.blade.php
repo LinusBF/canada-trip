@@ -44,7 +44,6 @@
             @endforeach
             </div>
         </div>
+        <footer>©Linus Bein Fahlander 2017</footer>
     </div>
-
-    <footer>©Linus Bein Fahlander 2017</footer>
 @endsection
