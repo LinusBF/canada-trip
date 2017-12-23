@@ -83,8 +83,6 @@ function monitor(event, visible)
 
 		var current_loc_title = $('.location_title');
 
-		console.log(loc_name);
-
 		if(current_loc_title.text() != loc_name){
 			current_loc_title.fadeOut(function () {
 				$(this).text(loc_name).fadeIn();

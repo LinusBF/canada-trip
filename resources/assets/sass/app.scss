@@ -321,13 +321,16 @@ $img_border: 75px;
 .post_image > img{
   margin: auto;
   height: 450px;
+  width: -webkit-calc(70% - 20px);
+  width: -moz-calc(70% - 20px);
+  width: calc(70% - 20px);
   box-shadow: 0 1px 3px rgba(0,0,0, 0.12);
 }
 
 .location_container{
   position: static;
   width: 100%;
-  margin: auto auto 200px;
+  margin: auto auto 100px;
 }
 
 .trip_container{
@@ -350,6 +353,7 @@ $img_border: 75px;
   width: 100%;
   text-align: center;
   position: static;
+  padding-top: 200px;
 }
 
 .trip_post{
