@@ -16,7 +16,7 @@
         <div class="fullscreen-bg">
             @if($image != null)
                 @if(!starts_with($image->path, 'public/')) <!-- Figure out a smoother way of doing this, column in DB? -->
-                    <div class="youtube-foreground fullscreen-bg__video">
+                    <div class="youtube-foreground">
                         <iframe src="https://www.youtube.com/embed/{{ $image->path }}?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1&playlist={{ $image->path }}"
                                 frameborder="0" allowfullscreen="allowfullscreen"
                                 mozallowfullscreen="mozallowfullscreen"
