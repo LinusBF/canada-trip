@@ -12,5 +12,37 @@
   .fullscreen-bg__video {
     display: none;
   }
+
+  .youtube-foreground{
+    display: none;
+  }
+}
+
+
+/*----------------
+-----TRIP PAGE----
+----------------*/
+
+@media (max-width: 767px) {
+
+  .fullscreen_trip_bg > img{
+    width: auto;
+    height: auto;
+  }
+
+  .trip_post{
+    width: 90%;
+  }
+
+  .post_text{
+    display: block;
+    width: 90%;
+    border-right: none;
+  }
+
+  .post_image{
+    display: block;
+    width: 100%;
+  }
 }
 
