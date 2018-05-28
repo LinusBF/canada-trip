@@ -8,6 +8,8 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+// Mobile SCSS
+@import "mobile";
 
 
 /*------------
@@ -157,16 +159,6 @@ html, body {
 }
 @media (max-aspect-ratio: 16/9) {
   .youtube-foreground { width: 300%; left: -100%; }
-}
-
-@media (max-width: 767px) {
-  .fullscreen-bg {
-    background-color: #ffffff;
-  }
-
-  .fullscreen-bg__video {
-    display: none;
-  }
 }
 
 
